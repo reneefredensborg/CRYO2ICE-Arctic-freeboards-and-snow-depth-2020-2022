@@ -6,8 +6,20 @@
 
 Contact: Renée Mie Fredensborg Hansen @ rmfha@space.dtu.dk
 
+### Versions
 
+v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (CRYO2ICE) observations using Baseline-D as baseline for the entire processing chain. Comparisons against auxiliary data products (AMSR2 and SM-LG), and roughness proxies derived from the radar and laser products. 
 
+### Data 
+
+- ESA Baseline-D L1B and L2 CryoSat-2 Ice products: 
+- NASA ATL10 Sea Ice Freeboard products: 
+- AMSR2 passive microwave sea ice concentration and snow depth: 
+- SM-LG: 
+- CCI CryoSat-2 freeboard product: 
+- LARM CryoSat-2 freeboard product: 
+
+## Processing steps 
 
 
 
