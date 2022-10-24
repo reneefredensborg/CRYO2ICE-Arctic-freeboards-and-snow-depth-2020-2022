@@ -2,7 +2,7 @@
  A first examination of CRYO2ICE (CryoSat-2 and ICESat-2) freeboards (radar or laser), derived snow depths, comparison with roughness proxies and auxiliary data (daily snow depth maps from passive microwave or reanalysis-based models) during the winter season (November-April) of 2020-2021. 
  This program computes CRYO2ICE comparable observations at CryoSat-2 locations (baseline) by a defined search radius using the European Space Agency's (ESA's) Baseline-D L1B and L2 products for CryoSat-2 and ATL10 from NASA's ICESat-2. These are later compared with freeboard products from ESA's CLimate Change Initiative (CCI) and the lognormal altimetric re-tracker model (LARM, Landy et al. 2021), to investigate impact of different re-trackers, as well as daily snow depth maps from passive microwave (AMSR2/ASMR-E) and reanalysis-based snow models (SnowModel-Lagrangian/SM-LG).
 
-[![DOI](https://badgen.net/badge/DOI/10.1158.DTU.21369129/red)](10.11583/DTU.21369129)
+[![DOI](https://badgen.net/badge/DOI/10.1158%2FDTU.21369129/red)](10.11583/DTU.21369129)
 
 Contact: Renée Mie Fredensborg Hansen @ rmfha@space.dtu.dk
 
