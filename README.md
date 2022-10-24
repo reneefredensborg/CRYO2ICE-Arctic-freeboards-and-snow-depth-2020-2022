@@ -14,13 +14,29 @@ v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (
 
 - ESA Baseline-D L1B and L2 CryoSat-2 Ice products: 
 - NASA ATL10 Sea Ice Freeboard products: 
-- AMSR2 passive microwave sea ice concentration and snow depth: 
-- SM-LG: 
+- AMSR2 passive microwave sea ice concentration and snow depth: available at National Snow and Ice Data Center (NSIDC) as AMSR-E/AMSR2 Unified L3 Daily 12.5 km Brightness Temperatures, Sea Ice Concentration, Motion & Snow Depth Polar Grids, Version 1 (AU\SI12) by Meier et al. (2018)
+- SM-LG: available at NSIDC as Lagrangian Snow Distributions for Sea-Ice Applications, Version 1 (NSIDC-0758) by Listion et al. (2021).
 - CCI CryoSat-2 freeboard product: 
-- LARM CryoSat-2 freeboard product: 
+- LARM CryoSat-2 freeboard product: presented in Landy et al. (2020), provided by Jack Landy for this study. Available for this study at DOI: 10.11583/DTU.21369129. 
+
+### Installation and about the code 
+The code is written in Jupyter Notebook and requires various python packages which are shown in the top cell of the repositories. These packages can be installed using either ```pip install``` or ```conda install``` in your command/prompt window. 
 
 ## Processing steps 
 
+
+### Pre-processing of CryoSat-2 and ICESat-2
+
+
+
+### Obtaining CRYO2ICE observations: extract ICESat-2 at CryoSat-2 locations with specified search radius 
+
+
+
+### Extract auxiliary data: AMSR2, SM-LG and additional CryoSat-2 re-trackers for comparison
+
+
+### Comparison and results 
 
 
 ## Open research
@@ -31,3 +47,6 @@ All the data compiled for the study and used for the study presented in this cod
 ## References
 Landy, J. C., Petty, A. A., Tsamados, M., & Stroeve, J. C. (2020). Sea ice roughness overlooked as a key source of uncertainty in CryoSat-2 ice freeboard retrievals. Journal of Geophysical Research: Oceans, 125, e2019JC015820. https://doi.org/10.1029/2019JC015820
 
+Liston, G. E., J. Stroeve, and P. Itkin. (2021). Lagrangian Snow Distributions for Sea-Ice Applications, Version 1 [Data Set]. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center. https://doi.org/10.5067/27A0P5M6LZBI. Date Accessed 10-24-2022.
+
+Meier, W. N., T. Markus, and J. C. Comiso. 2018. AMSR-E/AMSR2 Unified L3 Daily 12.5 km Brightness Temperatures, Sea Ice Concentration, Motion & Snow Depth Polar Grids, Version 1. [Indicate subset used]. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center. doi: https://doi.org/10.5067/RA1MIJOYPK3P. [12 October 2022].
