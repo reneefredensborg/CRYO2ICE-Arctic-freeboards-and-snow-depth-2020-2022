@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 23 13:24:38 2023
+
+@author: rmfha
+"""
+
+import h5py
+import numpy as np 
+import netCDF4
+import pandas as pd
+
+files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
+
+
+files_check_IS2b = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/November/*_02.h5
+files_check_IS2b_2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/December/*_02.h5
+files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_01.h5
+files_check_IS2b_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_02.h5
+files_check_IS2_4 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/February/*_01.h5
+files_check_IS2_5 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/March/*_01.h5
+files_check_IS2_6 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/April/*_01.h5
+
+files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + files_check_IS2b_3 + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
+#filename = r"E:\DTU\CRYO2ICE\Data\CRYO2ICE_data\IS2\All_data\ATL10-01_20210412125041_02861101_005_01.h5"
+
+list_total = np.arange(0, len(files_total_IS2))
+
+appended_data = []
+for k in list_total:
+    
+    ds = netCDF4.Dataset(files_check_CS2[k], 'r')
+    rel_orbit_number = ds.getncattr('rel_orbit_number')
+    abs_orbit_number = ds.getncattr('abs_orbit_number')
+    start_CS2_TAI = ds.getncattr('first_record_time')
+    end_CS2_TAI = ds.getncattr('last_record_time')
+    
+    with h5py.File(files_total_IS2[k], "r") as f:
+        start_IS2_UTC = str(f['ancillary_data/data_start_utc'][:])
+        stop_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
+        IS2_RGT = f['ancillary_data/end_rgt'][:]
+        
+    df = pd.DataFrame(
+        {
+           'IS2_RGT':IS2_RGT,
+           'start_IS2_UTC':start_IS2_UTC,
+           'stop_IS2_UTC':stop_IS2_UTC,
+           'CS2_rel_orbit_number':rel_orbit_number, 
+           'CS2_abs_orbit_number':abs_orbit_number,
+           'start_CS2_TAI':start_CS2_TAI,
+           'stop_CS2_TAI':end_CS2_TAI
+        },
+    )
+    
+    appended_data.append(df)
+    
+df_appended = pd.concat(appended_data)
+
+df_appended.to_csv(r'E:/DTU/CRYO2ICE/cryo2ice_tracks.csv')
+    
