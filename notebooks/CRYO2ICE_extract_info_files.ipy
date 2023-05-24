@@ -25,7 +25,7 @@ files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + 
 #filename = r"E:\DTU\CRYO2ICE\Data\CRYO2ICE_data\IS2\All_data\ATL10-01_20210412125041_02861101_005_01.h5"
 
 list_total = np.arange(0, len(files_total_IS2))
-
+#list_total = np.arange(0, 1)
 appended_data = []
 for k in list_total:
     
@@ -33,11 +33,15 @@ for k in list_total:
     rel_orbit_number = ds.getncattr('rel_orbit_number')
     abs_orbit_number = ds.getncattr('abs_orbit_number')
     start_CS2_TAI = ds.getncattr('first_record_time')
+    start_CS2_TAI = start_CS2_TAI[4:30]
     end_CS2_TAI = ds.getncattr('last_record_time')
+    end_CS2_TAI = end_CS2_TAI[4:30]
     
     with h5py.File(files_total_IS2[k], "r") as f:
         start_IS2_UTC = str(f['ancillary_data/data_start_utc'][:])
+        start_IS2_UTC = start_IS2_UTC[3:32-3]
         stop_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
+        stop_IS2_UTC = stop_IS2_UTC[3:32-3]
         IS2_RGT = f['ancillary_data/end_rgt'][:]
         
     df = pd.DataFrame(
