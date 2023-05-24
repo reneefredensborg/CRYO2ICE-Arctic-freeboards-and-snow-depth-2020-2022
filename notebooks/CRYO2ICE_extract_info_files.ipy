@@ -2,6 +2,17 @@
 """
 Created on Tue May 23 13:24:38 2023
 
+Extraction of file information for each CRYO2ICE track (for table in Supporting Information).
+
+The following information pr. CRYO2ICE track is extracted:
+    - (int) IS2 reference ground track (RGT)
+    - (str) IS2 start time (UTC)
+    - (str) IS2 end time (UTC)
+    - (int) CS2 absolute orbit number 
+    - (int) CS2 relative orbit number
+    - (str) CS2 start time (TAI)
+    - (str) CS2 end time (TAI)
+
 @author: rmfha
 """
 
@@ -42,8 +53,8 @@ for k in list_total: # for every file in both lists of file names
     with h5py.File(files_total_IS2[k], "r") as f:
         start_IS2_UTC = str(f['ancillary_data/data_start_utc'][:])
         start_IS2_UTC = start_IS2_UTC[3:32-3]
-        stop_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
-        stop_IS2_UTC = stop_IS2_UTC[3:32-3]
+        end_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
+        end_IS2_UTC = end_IS2_UTC[3:32-3]
         IS2_RGT = f['ancillary_data/end_rgt'][:]
     
     # save data as dataframe to append to a list of dataframes for pd.concat later
@@ -51,7 +62,7 @@ for k in list_total: # for every file in both lists of file names
         {
            'IS2_RGT':IS2_RGT,
            'start_IS2_UTC':start_IS2_UTC,
-           'stop_IS2_UTC':stop_IS2_UTC,
+           'stop_IS2_UTC':end_IS2_UTC,
            'CS2_rel_orbit_number':rel_orbit_number, 
            'CS2_abs_orbit_number':abs_orbit_number,
            'start_CS2_TAI':start_CS2_TAI,
