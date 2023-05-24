@@ -10,9 +10,10 @@ import numpy as np
 import netCDF4
 import pandas as pd
 
+# Extract CS2 data files (all data)
 files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
 
-
+# Extract IS2 data files (all data)
 files_check_IS2b = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/November/*_02.h5
 files_check_IS2b_2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/December/*_02.h5
 files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_01.h5
@@ -20,14 +21,15 @@ files_check_IS2b_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/Jan
 files_check_IS2_4 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/February/*_01.h5
 files_check_IS2_5 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/March/*_01.h5
 files_check_IS2_6 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/April/*_01.h5
-
+# Combine all IS2 filename lists to one for direct comparison with CS2
 files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + files_check_IS2b_3 + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
-#filename = r"E:\DTU\CRYO2ICE\Data\CRYO2ICE_data\IS2\All_data\ATL10-01_20210412125041_02861101_005_01.h5"
 
+# For IS2 and CS2 data, open and extract information. The following is extracted:
+    # For IS2: start/end time, RGT
+    # for CS2: start/ent time, absolute orbit number, relative orbit number
 list_total = np.arange(0, len(files_total_IS2))
-#list_total = np.arange(0, 1)
 appended_data = []
-for k in list_total:
+for k in list_total: # for every file in both lists of file names
     
     ds = netCDF4.Dataset(files_check_CS2[k], 'r')
     rel_orbit_number = ds.getncattr('rel_orbit_number')
@@ -43,7 +45,8 @@ for k in list_total:
         stop_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
         stop_IS2_UTC = stop_IS2_UTC[3:32-3]
         IS2_RGT = f['ancillary_data/end_rgt'][:]
-        
+    
+    # save data as dataframe to append to a list of dataframes for pd.concat later
     df = pd.DataFrame(
         {
            'IS2_RGT':IS2_RGT,
@@ -56,9 +59,11 @@ for k in list_total:
         },
     )
     
+    # append dataframes to list of dataframes
     appended_data.append(df)
-    
-df_appended = pd.concat(appended_data)
 
+# concat list of dataframes
+df_appended = pd.concat(appended_data)
+# save data to csv file 
 df_appended.to_csv(r'E:/DTU/CRYO2ICE/cryo2ice_tracks.csv')
     
