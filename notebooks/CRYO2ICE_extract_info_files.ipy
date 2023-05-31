@@ -15,16 +15,16 @@ The following information pr. CRYO2ICE track is extracted:
 
 @author: rmfha
 """
-
+# Import packages, initialisation 
 import h5py
 import numpy as np 
 import netCDF4
 import pandas as pd
 
-# Extract CS2 data files (all data)
+# Extract CS2 data files (all data within folder)
 files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
 
-# Extract IS2 data files (all data)
+# Extract IS2 data files (all data within defined folders)
 files_check_IS2b = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/November/*_02.h5
 files_check_IS2b_2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/December/*_02.h5
 files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_01.h5
@@ -38,23 +38,25 @@ files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + 
 # For IS2 and CS2 data, open and extract information. The following is extracted:
     # For IS2: start/end time, RGT
     # for CS2: start/ent time, absolute orbit number, relative orbit number
-list_total = np.arange(0, len(files_total_IS2))
-appended_data = []
+list_total = np.arange(0, len(files_total_IS2)) # list of numbers for all files 
+appended_data = [] # initialisation 
 for k in list_total: # for every file in both lists of file names
     
-    ds = netCDF4.Dataset(files_check_CS2[k], 'r')
+    ds = netCDF4.Dataset(files_check_CS2[k], 'r') # open CS2 data
+    # Extract CS2 parameters
     rel_orbit_number = ds.getncattr('rel_orbit_number')
     abs_orbit_number = ds.getncattr('abs_orbit_number')
     start_CS2_TAI = ds.getncattr('first_record_time')
-    start_CS2_TAI = start_CS2_TAI[4:30]
+    start_CS2_TAI = start_CS2_TAI[4:30] # Remove irrelavant characters
     end_CS2_TAI = ds.getncattr('last_record_time')
-    end_CS2_TAI = end_CS2_TAI[4:30]
+    end_CS2_TAI = end_CS2_TAI[4:30] # Remove irrelavant characters
     
-    with h5py.File(files_total_IS2[k], "r") as f:
+    # Extract IS2 parameters
+    with h5py.File(files_total_IS2[k], "r") as f: # open IS2 data
         start_IS2_UTC = str(f['ancillary_data/data_start_utc'][:])
-        start_IS2_UTC = start_IS2_UTC[3:32-3]
+        start_IS2_UTC = start_IS2_UTC[3:32-3] # Remote irrelevant characters
         end_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
-        end_IS2_UTC = end_IS2_UTC[3:32-3]
+        end_IS2_UTC = end_IS2_UTC[3:32-3] # Remote irrelevant characters
         IS2_RGT = f['ancillary_data/end_rgt'][:]
     
     # save data as dataframe to append to a list of dataframes for pd.concat later
