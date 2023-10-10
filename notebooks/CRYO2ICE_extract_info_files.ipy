@@ -20,6 +20,7 @@ import h5py
 import numpy as np 
 import netCDF4
 import pandas as pd
+from datetime import datetime
 
 # Extract CS2 data files (all data within folder)
 files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
@@ -27,13 +28,17 @@ files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
 # Extract IS2 data files (all data within defined folders)
 files_check_IS2b = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/November/*_02.h5
 files_check_IS2b_2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/December/*_02.h5
-files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_01.h5
-files_check_IS2b_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_02.h5
+files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*.h5
+#files_check_IS2b_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_02.h5
 files_check_IS2_4 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/February/*_01.h5
 files_check_IS2_5 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/March/*_01.h5
 files_check_IS2_6 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/April/*_01.h5
 # Combine all IS2 filename lists to one for direct comparison with CS2
-files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + files_check_IS2b_3 + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
+#files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + files_check_IS2b_3 + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
+
+files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3  + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
+
+
 
 # For IS2 and CS2 data, open and extract information. The following is extracted:
     # For IS2: start/end time, RGT
@@ -58,6 +63,10 @@ for k in list_total: # for every file in both lists of file names
         end_IS2_UTC = str(f['ancillary_data/data_end_utc'][:])
         end_IS2_UTC = end_IS2_UTC[3:32-3] # Remote irrelevant characters
         IS2_RGT = f['ancillary_data/end_rgt'][:]
+        
+    IS2_time = datetime.strptime(start_IS2_UTC, '%Y-%m-%dT%H:%M:%S.%f')
+    CS2_time = datetime.strptime(start_CS2_TAI, '%Y-%m-%dT%H:%M:%S.%f')
+    time_delta = ((CS2_time-IS2_time).total_seconds())/(60*60)
     
     # save data as dataframe to append to a list of dataframes for pd.concat later
     df = pd.DataFrame(
@@ -68,7 +77,8 @@ for k in list_total: # for every file in both lists of file names
            'CS2_rel_orbit_number':rel_orbit_number, 
            'CS2_abs_orbit_number':abs_orbit_number,
            'start_CS2_TAI':start_CS2_TAI,
-           'stop_CS2_TAI':end_CS2_TAI
+           'stop_CS2_TAI':end_CS2_TAI,
+           'time_delta':time_delta
         },
     )
     
@@ -78,5 +88,5 @@ for k in list_total: # for every file in both lists of file names
 # concat list of dataframes
 df_appended = pd.concat(appended_data)
 # save data to csv file 
-df_appended.to_csv(r'E:/DTU/CRYO2ICE/cryo2ice_tracks.csv')
+df_appended.to_csv(r'E:/DTU/CRYO2ICE/cryo2ice_tracks_v2.csv')
     
