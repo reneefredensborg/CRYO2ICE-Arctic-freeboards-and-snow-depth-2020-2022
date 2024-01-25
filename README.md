@@ -1,4 +1,4 @@
-# CRYO2ICE radar/laser freeboards, snow depth on sea ice and comparison against auxiliary data during winter season 2020-2021 (version 1)
+# CRYO2ICE radar/laser freeboards, snow depth on sea ice and comparison against auxiliary data during winter seasos 2020-2022
  A first examination of CRYO2ICE (CryoSat-2 and ICESat-2) freeboards (radar or laser), derived snow depths, and comparison auxiliary data (daily snow depth maps from passive microwave or reanalysis-based models, and buoys) during the winter season (November-April) of 2020-2021. 
  This program computes CRYO2ICE comparable observations at CryoSat-2 locations (baseline) by a defined search radius using the European Space Agency's (ESA's) Baseline-D L1B and L2 products for CryoSat-2 and ATL10 from NASA's ICESat-2. These are later compared with freeboard products from ESA's CLimate Change Initiative (CCI+) and the lognormal altimetric re-tracker model (LARM, Landy et al. 2021), to investigate impact of different re-trackers, as well as daily snow depth maps from passive microwave (AMSR2/ASMR-E) and reanalysis-based snow models (SnowModel-Lagrangian/SMLG and an updated version of this SMLG-HS).
 
