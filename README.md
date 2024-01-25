@@ -8,7 +8,8 @@ Contact: Renée Mie Fredensborg Hansen @ rmfha@space.dtu.dk
 
 ### Versions
 
-v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (CRYO2ICE) observations using Baseline-D as baseline for the entire processing chain. Comparisons against auxiliary data products (AMSR2 and SM-LG), and buoy estimates. 
+v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (CRYO2ICE) observations using Baseline-D as baseline for the entire processing chain. Comparisons against auxiliary data products (AMSR2 and SM-LG), and buoy estimates.
+v2.0 - January 2024: 
 
 ### Data 
 
