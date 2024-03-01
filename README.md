@@ -20,7 +20,7 @@ v2.0 - February 2024: Updates based on reviews to preprint and addition of code 
 - LARM CryoSat-2 freeboard product: presented in Landy et al. (2020), provided by Jack Landy for this study. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 
 ### Installation and about the code 
-The code is written in Jupyter Notebook and requires various python packages which are denoted in the environment.yml file . These packages can be installed using either ```pip install``` or ```conda install``` in your command/prompt window. 
+The code is written in Jupyter Notebook and requires various python packages which are denoted in the CRYO2ICE_environment.yml file. These packages can be installed and activated when creating a conda environment using teh .yml file. 
 
 ## Processing steps 
 
