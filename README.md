@@ -42,11 +42,14 @@ The code is written in Jupyter Notebook and requires various python packages whi
 
 ### Comparison and results 
 
+### Cross-over analysis and uncertainty estimation
+
+### Impact of sea ice drift using OSI SAF observations
+
 
 
 ## Open research
-This github is compiled of several Jupyter Notebooks used to compute the data and produce the study presented in: Fredensborg Hansen et al. (2023)
-Data compiled and used for the study is presented in: DOI 10.11583/DTU.21369129 
+This github is compiled of several Jupyter Notebooks used to compute the data and produce the study presented in: Fredensborg Hansen et al. (2023). Data compiled and used for the study is presented in: DOI 10.11583/DTU.21369129 
 
 ## References
 Fredensborg Hansen, R.M, Henriette Skourup, Eero Rinne, et al. Arctic freeboard and snow depth from near-coincident CryoSat-2 and ICESat-2 (CRYO2ICE) observations: A first examination during winter 2020-2021. ESS Open Archive . June 07, 2023. DOI: 10.22541/essoar.168614619.96485405/v1 
