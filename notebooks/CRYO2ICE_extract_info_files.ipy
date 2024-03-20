@@ -31,13 +31,9 @@ files_check_CS2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/CS2/L2/*.nc
 files_check_IS2b = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/November/*_02.h5
 files_check_IS2b_2 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/December/*_02.h5
 files_check_IS2_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*.h5
-#files_check_IS2b_3 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/January/*_02.h5
 files_check_IS2_4 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/February/*_01.h5
 files_check_IS2_5 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/March/*_01.h5
 files_check_IS2_6 = !ls E:/DTU/CRYO2ICE/Data/CRYO2ICE_data/IS2/Monthly_data/April/*_01.h5
-# Combine all IS2 filename lists to one for direct comparison with CS2
-#files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3 + files_check_IS2b_3 + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
-
 files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3  + files_check_IS2_4  + files_check_IS2_5  + files_check_IS2_6 
 
 
@@ -46,17 +42,6 @@ files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2 + files_check_IS2_3  +
 
 import os
 import numpy as np
-
-#directory=r'D:\DTU\CRYO2ICE\Data\CRYO2ICE_data\2021-2022\CS2'
-#files_check_CS2 = os.listdir(directory + r'\All_months\*.nc')
-
-#directory=r'D:\DTU\CRYO2ICE\Data\CRYO2ICE_data\2021-2022\IS2'
-#files_check_IS2b = os.listdir(directory + r'\All_months\*_01.h5')
-#files_check_IS2b_2 = os.listdir(directory + r'\All_months\*_02.h5')
-
-#files_total_IS2 =  files_check_IS2b  + files_check_IS2b_2
-
-
 directory_path = r'D:\DTU\CRYO2ICE\Data\CRYO2ICE_data\2021-2022\IS2\All_months'
 file_extension = '*_01.h5'
 files_check_IS2b = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f)) and f.endswith(file_extension)]
