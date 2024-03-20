@@ -22,36 +22,11 @@ v2.0 - February 2024: Updates based on reviews to preprint and addition of code 
 ### Installation and about the code 
 The code is written in Jupyter Notebook and requires various python packages which are denoted in the CRYO2ICE_environment.yml file. These packages can be installed and activated when creating a conda environment using teh .yml file. 
 
-## Processing steps 
-
-
-### Pre-processing of CryoSat-2 and ICESat-2
-
-
-
-### Obtaining CRYO2ICE observations: extract ICESat-2 at CryoSat-2 locations with specified search radius 
-
-
-
-### Extract auxiliary data: AMSR2, SM-LG and additional CryoSat-2 re-trackers for comparison
-
-
-### Buoy comparison
-
-
-### Comparison and results 
-
-### Cross-over analysis and uncertainty estimation
-
-### Impact of sea ice drift using OSI SAF observations
-
-
-
 ## Open research
-This github is compiled of several Jupyter Notebooks used to compute the data and produce the study presented in: Fredensborg Hansen et al. (2023). Data compiled and used for the study is presented in: DOI 10.11583/DTU.21369129 
+This github is compiled of several Jupyter Notebooks used to compute the data and produce the study presented in: Fredensborg Hansen et al. (2024). Data compiled and used for the study is presented in: DOI 10.11583/DTU.21369129 
 
 ## References
-Fredensborg Hansen, R.M, Henriette Skourup, Eero Rinne, et al. Arctic freeboard and snow depth from near-coincident CryoSat-2 and ICESat-2 (CRYO2ICE) observations: A first examination during winter 2020-2021. ESS Open Archive . June 07, 2023. DOI: 10.22541/essoar.168614619.96485405/v1 
+Fredensborg Hansen, R.M, Henriette Skourup, Eero Rinne, et al. 
 
 Landy, J. C., Petty, A. A., Tsamados, M., & Stroeve, J. C. (2020). Sea ice roughness overlooked as a key source of uncertainty in CryoSat-2 ice freeboard retrievals. Journal of Geophysical Research: Oceans, 125, e2019JC015820. https://doi.org/10.1029/2019JC015820
 
