@@ -12,21 +12,21 @@ v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (
 v2.0 - February 2024: Updates based on reviews to preprint and addition of code related to analysis of sea ice drift and cross-over analysis (XO).  
 
 ### Data 
-- ESA Baseline-E L2 CryoSat-2 Ice products: XX. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
-- NASA ATL10 Sea Ice Freeboard products: XX. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
+- ESA Baseline-E L2 CryoSat-2 Ice products. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. Specific tracks identified using www.cs2eo.org tool, notebook is provided to download the exact files if wanted.  Download script provided by the same tool.
+- NASA ATL10 Sea Ice Freeboard products. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129.  Specific tracks identified using www.cs2eo.org tool, notebook is provided to download the exact files if wanted.   Download script provided by the same tool.
 - AMSR2 passive microwave sea ice concentration and snow depth: available at National Snow and Ice Data Center (NSIDC) as AMSR-E/AMSR2 Unified L3 Daily 12.5 km Brightness Temperatures, Sea Ice Concentration, Motion & Snow Depth Polar Grids, Version 1 (AU\SI12) by Meier et al. (2018). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 - SM-LG: available at NSIDC as Lagrangian Snow Distributions for Sea-Ice Applications, Version 1 (NSIDC-0758) by Listion et al. (2021). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 - CCI CryoSat-2 freeboard product: available from XXX, presented in Rinne and Hendricks (2023). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 - LARM CryoSat-2 freeboard product: presented in Landy et al. (2020), provided by Jack Landy for this study. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 
 ### Installation and about the code 
-The code is written in Jupyter Notebook and requires various python packages which are denoted in the CRYO2ICE_environment.yml file. These packages can be installed and activated when creating a conda environment using teh .yml file. 
+The code is written in Jupyter Notebook or in python, and requires various python packages which are denoted in the CRYO2ICE_environment.yml file. These packages can be installed and activated when creating a conda environment using the .yml file. 
 
 ## Open research
 This github is compiled of several Jupyter Notebooks used to compute the data and produce the study presented in: Fredensborg Hansen et al. (2024). Data compiled and used for the study is presented in: DOI 10.11583/DTU.21369129 
 
 ## References
-Fredensborg Hansen, R.M, Henriette Skourup, Eero Rinne, et al. 
+Fredensborg Hansen, R.M, Henriette Skourup, Eero Rinne, et al. (2024). (PROVIDED SOON). 
 
 Landy, J. C., Petty, A. A., Tsamados, M., & Stroeve, J. C. (2020). Sea ice roughness overlooked as a key source of uncertainty in CryoSat-2 ice freeboard retrievals. Journal of Geophysical Research: Oceans, 125, e2019JC015820. https://doi.org/10.1029/2019JC015820
 
