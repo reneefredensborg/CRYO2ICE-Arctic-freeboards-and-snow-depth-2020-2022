@@ -1,4 +1,4 @@
-# CRYO2ICE radar/laser freeboards, snow depth on sea ice and comparison against auxiliary data during winter seasos 2020-2022
+# CRYO2ICE radar/laser freeboards, snow depth on sea ice and comparison against auxiliary data during winter seasons 2020-2022 v3.0
  A first examination of CRYO2ICE (CryoSat-2 and ICESat-2) freeboards (radar or laser), derived snow depths, and comparison auxiliary data (daily snow depth maps from passive microwave or reanalysis-based models, and buoys) during the winter season (November-April) of 2020-2022. 
  This program computes CRYO2ICE comparable observations at CryoSat-2 locations (used as baseline) by a defined search radius using the European Space Agency's (ESA's) Baseline-E  L2 products for CryoSat-2 and ATL10 r005 from NASA's ICESat-2. These are later compared with freeboard products from ESA's CLimate Change Initiative (CCI+) and the lognormal altimetric re-tracker model (LARM, Landy et al. 2021), to investigate impact of different re-trackers, as well as daily snow depth maps from passive microwave (AMSR2/ASMR-E) and reanalysis-based snow models (SnowModel-Lagrangian/SMLG).
 
@@ -9,7 +9,10 @@ Contact: Renée Mie Fredensborg Hansen @ rmfha@space.dtu.dk
 ### Versions
 
 v1.0 - October 2022: Initial repository used to process CryoSat-2 and ICESat-2 (CRYO2ICE) observations using Baseline-D as baseline for the entire processing chain. Comparisons against auxiliary data products (AMSR2 and SM-LG), and buoy estimates.
+
 v2.0 - February 2024: Updates based on reviews to preprint and addition of code related to analysis of sea ice drift and cross-over analysis (XO).  
+
+v3.0 - March 2024: Final version of Jupyter Notebooks and additional python scripts used in Fredensborg Hansen et al. (2024), acceptance of paper (Fredensborg Hansen et al., 2024). 
 
 ### Data 
 - ESA Baseline-E L2 CryoSat-2 Ice products. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. Specific tracks identified using www.cs2eo.org tool, notebook is provided to download the exact files if wanted.  Download script provided by the same tool.
