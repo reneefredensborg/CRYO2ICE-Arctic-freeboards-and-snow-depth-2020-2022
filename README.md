@@ -19,7 +19,7 @@ v3.0 - March 2024: Final version of Jupyter Notebooks and additional python scri
 - NASA ATL10 Sea Ice Freeboard products. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129.  Specific tracks identified using www.cs2eo.org tool, notebook is provided to download the exact files if wanted.   Download script provided by the same tool.
 - AMSR2 passive microwave sea ice concentration and snow depth: available at National Snow and Ice Data Center (NSIDC) as AMSR-E/AMSR2 Unified L3 Daily 12.5 km Brightness Temperatures, Sea Ice Concentration, Motion & Snow Depth Polar Grids, Version 1 (AU\SI12) by Meier et al. (2018). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 - SM-LG: available at NSIDC as Lagrangian Snow Distributions for Sea-Ice Applications, Version 1 (NSIDC-0758) by Listion et al. (2021). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
-- CCI CryoSat-2 freeboard product: available from XXX, presented in Rinne and Hendricks (2023). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
+- CCI CryoSat-2 freeboard product: available from The Alfred Wegener Institute (ftp://ftp.awi.de/sea_ice/projects/cci/crdp/v3p0-rc1/cryosat2/nh/l2p_trajectory/), presented in Rinne and Hendricks (2023). Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 - LARM CryoSat-2 freeboard product: presented in Landy et al. (2020), provided by Jack Landy for this study. Available at identified CRYO2ICE locations for this study at DOI: 10.11583/DTU.21369129. 
 
 ### Installation and about the code 
