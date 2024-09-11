@@ -1,12 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  - family-names: Fredensborg Hansen
-    given-names: Renée Mie
-    orcid: https://orcid.org/0000-0002-3426-347X
-title: "CRYO2ICE radar/laser freeboards, snow depth on sea ice and comparison against auxiliary data during winter seasons 2020-2022"
-version: 3.0
-identifiers:
-  - type: doi
-    value: 10.11583/DTU.21369129.v2
-date-released: 2024-03
+- family-names: "Fredensborg Hansen"
+  given-names: "Renée Mie"
+  orcid: "https://orcid.org/0000-0002-3426-347X"
+title: "CRYO2ICE Arctic freeboards and snow depth 2020 2022"
+version: 3.0.0
+doi: 10.5281/zenodo.13749318
+date-released: 2024-09-11
+url: "https://github.com/reneefredensborg/CRYO2ICE-Arctic-freeboards-and-snow-depth-2020-2022"
